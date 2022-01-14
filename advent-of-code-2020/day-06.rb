@@ -10,6 +10,7 @@ def solution1(input)
     .join.split("---").map { |x| x.strip }
   ans = 0
   input.each { |line| ans += line.chars.uniq.count }
+
   ans
 end
 
@@ -25,6 +26,7 @@ def solution2(input)
     line.each { |p| p.chars.each { |c| hash[c] += 1 } }
     count += hash.select { |_, v| v == line.size }.size
   }
+
   count
 end
 
