@@ -1,12 +1,11 @@
-
 require 'set'
 require 'pp'
 
 path = File.expand_path('input/input04.txt')
 input = File.read(path).split("\n")
 input = input.map { |x| x != "" ?  x + " " : x }
-input = input.map { |x| x == "" ? "---" : x  } 
-input = input.join.split("---").map { |x| x.split }
+  .map { |x| x == "" ? "---" : x  }.join.split("---")
+  .map { |x| x.split }
 
 def solution1(input)
     valid = 0
@@ -64,8 +63,6 @@ def solution2(input)
     valid
 end
 
-
 pp solution1 input
 pp solution2 input
-
 
