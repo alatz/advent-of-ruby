@@ -7,26 +7,8 @@ input = File.read(path).split("\n").map! { |l|
   [[w.to_i,x.to_i],[y.to_i,z.to_i]] 
 }
 
-test_input = [
-  "0,9 -> 5,9",
-  "8,0 -> 0,8",
-  "9,4 -> 3,4",
-  "2,2 -> 2,1",
-  "7,0 -> 7,4",
-  "6,4 -> 2,0",
-  "0,9 -> 2,9",
-  "3,4 -> 1,4",
-  "0,0 -> 8,8",
-  "5,5 -> 8,2",
-].map! { |l|
-  w,x,y,z = l.match(/(\d+),(\d+) -> (\d+),(\d+)/).captures
-  [[w.to_i,x.to_i],[y.to_i,z.to_i]] 
-}
-
-
-def solution(data)
-  diag = false #diag = false
-  sz = 1000 #sz = 10
+def solve(data, diag)
+  sz = 1000
   grid = Array.new(sz) { Array.new(sz, 0) }
 
   i = 0
@@ -98,6 +80,14 @@ def solution(data)
   points
 end
 
-#pp solution(test_input)
-pp solution(input)
+def solution1(input)
+  solve(input, false)
+end
+
+def solution2(input)
+  solve(input, true)
+end
+
+pp solution1 input
+pp solution2 input
 
